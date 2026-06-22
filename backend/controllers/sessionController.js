@@ -50,7 +50,7 @@ const createSession = asyncHandler(async (req, res) => {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({ role, level, count})
+                body: JSON.stringify({ role, level, count,  interview_type: interviewType})
             });
 
             if (!aiResponse.ok) {
