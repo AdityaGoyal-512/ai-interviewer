@@ -4,13 +4,13 @@ import useSocket from './hooks/useSocket';
 import { ToastContainer } from 'react-toastify';
 import Header from './components/Header';
 import Login from './pages/Login';
-/*import Register from './pages/Register';
+import Register from './pages/Register';
 import PrivateRoute from './components/PrivateRoute';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
 import InterviewRunner from './pages/InterviewRunner';
 import SessionReview from './pages/SessionReview';
-import NotFound from './pages/NotFound';*/
+import NotFound from './pages/NotFound';
 
 const App = () => {
   useSocket();

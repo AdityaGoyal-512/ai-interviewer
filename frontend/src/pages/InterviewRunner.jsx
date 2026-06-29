@@ -58,7 +58,7 @@ function InterviewRunner() {
   const [selectedLanguage, setSelectedLanguage] = useState('javascript');
 
 
-  // If submittedLocal[0] is true, we lock Question 0 immediately.
+
   const [submittedLocal, setSubmittedLocal] = useState({});
 
   const [drafts, setDrafts] = useState(() => {
@@ -95,16 +95,16 @@ function InterviewRunner() {
   const currentQuestion = activeSession?.questions?.[currentQuestionIndex];
 
 
-  // 1. Is it submitted in Redux? (Backend confirmed)
+  
   const isReduxSubmitted = currentQuestion?.isSubmitted === true;
 
-  // 2. Did I just click submit locally? (Optimistic update)
+  
   const isLocallySubmitted = submittedLocal[currentQuestionIndex] === true;
 
-  // 3. Lock if EITHER is true
+ 
   const isQuestionLocked = isReduxSubmitted || isLocallySubmitted;
 
-  // 4. Show "Analyzing..." status if Locked AND not yet evaluated
+  
   const isProcessing = isQuestionLocked && !currentQuestion?.isEvaluated;
 
 
@@ -175,7 +175,7 @@ function InterviewRunner() {
       return;
     }
 
-    // ✅ 1. OPTIMISTIC UPDATE: Lock UI instantly
+  
     setSubmittedLocal(prev => ({ ...prev, [currentQuestionIndex]: true }));
 
     const formData = new FormData();
@@ -183,7 +183,7 @@ function InterviewRunner() {
     if (code) formData.append('code', code);
     if (audio) formData.append('audioFile', audio, 'answer.webm');
 
-    // ✅ 2. Send Request
+   
     dispatch(submitAnswer({ sessionId, formData }))
       .unwrap()
       .catch((err) => {

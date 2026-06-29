@@ -74,14 +74,16 @@ const Dashboard = () => {
   }
 
 
-  const handleDelete = (e, sessionId) => {
-    e.stopPropagation();
-    if (window.confirm('Are you sure you want to delete this session?')) {
-      dispatch(deleteSession(sessionId));
-      toast.error('Session Deleted')
-    }
-  }
+ const handleDelete = (e, sessionId) => {
+    console.log("DELETE CLICKED", sessionId);
 
+    e.stopPropagation();
+
+    if (window.confirm("Are you sure you want to delete this session?")) {
+        dispatch(deleteSession(sessionId));
+        toast.error("Session Deleted");
+    }
+};
 
 
   return (
